@@ -1,271 +1,233 @@
-// ============================================================
-//              JAVASCRIPT BASICS & DATA TYPES
-// ============================================================
-
-// "use strict"
-// Enables Strict Mode.
-// It makes JavaScript apply stricter rules and helps catch
-// common coding mistakes.
-
 "use strict";
 
+// javascript basics & data types
 
-// ------------------------------------------------------------
+
+// "use strict"
+// strict mode
+// helps catch some common mistakes
+// makes javascript follow stricter rules
+
+
 // alert()
-// ------------------------------------------------------------
 
-// alert("Welcome to Modern JavaScript");
+// alert("Welcome to Modern JavaScript")
 
-// `alert()` is a browser feature.
-// It does NOT work directly in Node.js because Node.js
-// does not provide the browser's window/alert API.
-//
-// In Node.js, use console.log() for output.
+// alert() is mainly used in browser
+// it will not work directly in node.js
+// in node.js we normally use console.log()
 
 
-// ------------------------------------------------------------
 // console.log()
-// ------------------------------------------------------------
 
-console.log(3 + 4);          // 7
-console.log("Hello World");  // Hello World
+console.log(3 + 4) // 7
+console.log("Hello World") // Hello World
 
-// console.log() is commonly used to display output in Node.js
-// and to debug JavaScript programs.
-
-
-// ============================================================
-//                 JAVASCRIPT DATA TYPES
-// ============================================================
-
-// JavaScript has two broad categories:
-//
-// 1. Primitive Data Types
-// 2. Non-Primitive / Reference Data Types
+// console.log() is used to print output
+// and also useful for debugging
 
 
-// ============================================================
-//                 1. PRIMITIVE DATA TYPES
-// ============================================================
+// data types
 
-// There are 7 primitive data types:
-//
-// 1. Number
-// 2. String
-// 3. Boolean
+// javascript data types are mainly divided into:
+
+// 1. primitive
+// 2. non-primitive / reference
+
+
+// primitive data types
+
+// 1. number
+// 2. string
+// 3. boolean
 // 4. null
 // 5. undefined
-// 6. Symbol
-// 7. BigInt
+// 6. symbol
+// 7. bigint
 
 
-// ------------------------------------------------------------
-// 1. Number
-// ------------------------------------------------------------
+// number
 
-let age = 25;
+let age = 25
 
-// Number is used for both integer and floating-point values.
-//
-// Examples:
-// 10
-// -5
-// 3.14
-// 1000
-//
-// JavaScript Number uses 64-bit floating-point format.
-//
-// Safe integer range:
-// -(2^53 - 1) to (2^53 - 1)
-//
-// Maximum safe integer:
-// Number.MAX_SAFE_INTEGER
-// 9007199254740991
+// number can be integer or decimal
+
+let marks = 90
+let price = 99.99
+let temperature = -5
+
+// javascript uses Number type for normal numbers
+// safe integer range is -(2^53 - 1) to (2^53 - 1)
+
+console.log(Number.MAX_SAFE_INTEGER) // 9007199254740991
 
 
-// ------------------------------------------------------------
-// 2. String
-// ------------------------------------------------------------
+// string
 
-let name = "Rahul";
+let name = "Rahul"
 
-// String represents text.
-//
-// Strings can be written using:
-// "Double quotes"
-// 'Single quotes'
-// `Template literals`
+// string is used for text
 
-let city = "Palwal";
-let message = 'Hello';
-let greeting = `Hello ${name}`;
+let city = "Palwal"
+let message = 'Hello'
 
-//
-// ⚠️ String does NOT have a "2^53 - 1" value range.
-// Strings can contain sequences of characters and their
-// maximum length depends on the JavaScript implementation.
+// template literal
+let greeting = `Hello ${name}`
+
+console.log(greeting) // Hello Rahul
+
+// strings can use:
+// "double quotes"
+// 'single quotes'
+// `backticks`
 
 
-// ------------------------------------------------------------
-// 3. Boolean
-// ------------------------------------------------------------
+// boolean
 
-let isLoggedIn = true;
+let isLoggedIn = true
+let isStudent = true
+let isAdmin = false
 
-// Boolean has only two values:
-//
+// boolean has only two values:
 // true
 // false
 
-let isStudent = true;
-let isAdmin = false;
+
+// null
+
+let accountState = null
+
+// null means intentional empty value
+// we are saying that the value is empty right now
+
+console.log(accountState) // null
+
+// typeof null gives "object"
+// this is a javascript historical behavior
+
+console.log(typeof null) // object
 
 
-// ------------------------------------------------------------
-// 4. null
-// ------------------------------------------------------------
+// undefined
 
-// null represents the intentional absence of a value.
+let country
 
-let accountState = null;
+// variable is declared but no value is assigned
 
-// Example:
-// We know that the account state currently has no value.
-//
-// ⚠️ Special JavaScript behavior:
-//
-// typeof null
-// returns "object"
-//
-// This is a historical JavaScript bug/quirk.
+console.log(country) // undefined
+console.log(typeof country) // undefined
 
 
-console.log(typeof null);    // "object"
+// symbol
+
+const id1 = Symbol("id")
+const id2 = Symbol("id")
+
+// every symbol is unique
+
+console.log(id1 === id2) // false
+console.log(typeof id1) // symbol
 
 
-// ------------------------------------------------------------
-// 5. undefined
-// ------------------------------------------------------------
+// bigint
 
-// undefined means a variable has been declared,
-// but no value has been assigned to it.
+const bigNumber = 123456789012345678901234567890n
 
-let country;
+// bigint is used for very large integers
+// n is added at the end
 
-console.log(country);        // undefined
-console.log(typeof country); // "undefined"
+console.log(bigNumber)
+console.log(typeof bigNumber) // bigint
 
 
-// ------------------------------------------------------------
-// 6. Symbol
-// ------------------------------------------------------------
+// non-primitive / reference data types
 
-// Symbol creates a unique primitive value.
-//
-// Every Symbol is unique, even if they have the same description.
-
-const id1 = Symbol("id");
-const id2 = Symbol("id");
-
-console.log(id1 === id2);    // false
+// common examples:
+// object
+// array
+// function
+// date
+// map
+// set
 
 
-// ------------------------------------------------------------
-// 7. BigInt
-// ------------------------------------------------------------
+// object
 
-// BigInt is used for integers larger than the safe range
-// of the Number data type.
-//
-// Add `n` at the end of an integer to create a BigInt.
-
-const bigNumber = 123456789012345678901234567890n;
-
-console.log(typeof bigNumber); // "bigint"
-
-// BigInt is NOT limited to 2^63 - 1.
-// It can represent arbitrarily large integers,
-// subject to implementation/memory limits.
-
-
-// ============================================================
-//          2. NON-PRIMITIVE / REFERENCE DATA TYPES
-// ============================================================
-
-// Common reference types include:
-//
-// Object
-// Array
-// Function
-// Date
-// Map
-// Set
-// etc.
-
-
-// Object
 const student = {
     name: "Rahul",
     age: 25
-};
-
-
-// Array
-const subjects = ["JavaScript", "DBMS", "OOP"];
-
-
-// Function
-function greet() {
-    console.log("Hello Rahul");
 }
 
-
-// Date
-const today = new Date();
+console.log(student)
 
 
-// ============================================================
-//                     typeof OPERATOR
-// ============================================================
+// array
 
-// `typeof` is used to determine the type of a value.
+const subjects = ["JavaScript", "DBMS", "OOP"]
 
-console.log(typeof name);       // "string"
-console.log(typeof age);        // "number"
-console.log(typeof isLoggedIn); // "boolean"
-
-console.log(typeof null);       // "object" ⚠️ historical quirk
-console.log(typeof country);    // "undefined"
-
-console.log(typeof bigNumber);  // "bigint"
-console.log(typeof id1);        // "symbol"
-console.log(typeof student);    // "object"
-console.log(typeof subjects);   // "object"
-console.log(typeof greet);      // "function"
+console.log(subjects)
 
 
-// ============================================================
-//                       QUICK SUMMARY
-// ============================================================
-//
-// Primitive:
-//
-// Number     → 25, 3.14
-// String     → "Rahul"
-// Boolean    → true / false
-// null       → intentional empty value
-// undefined  → value not assigned
-// Symbol     → unique identifier
-// BigInt     → very large integers
-//
-// Reference / Non-Primitive:
-//
-// Object
-// Array
-// Function
-// Date
-// Map
-// Set
-// etc.
-//
-// ============================================================
+// function
+
+function greet() {
+    console.log("Hello Rahul")
+}
+
+greet()
+
+
+// date
+
+const today = new Date()
+
+console.log(today)
+
+
+// typeof
+
+// typeof is used to check the data type
+
+console.log(typeof name)        // string
+console.log(typeof age)         // number
+console.log(typeof isLoggedIn)  // boolean
+
+console.log(typeof null)        // object
+console.log(typeof country)     // undefined
+
+console.log(typeof bigNumber)   // bigint
+console.log(typeof id1)         // symbol
+
+console.log(typeof student)     // object
+console.log(typeof subjects)    // object
+console.log(typeof greet)       // function
+
+
+// quick notes
+
+// primitive
+// number
+// string
+// boolean
+// null
+// undefined
+// symbol
+// bigint
+
+
+// non-primitive / reference
+// object
+// array
+// function
+// date
+// map
+// set
+
+
+// important
+
+// typeof null -> "object"
+// this is a known javascript quirk
+
+// typeof array -> "object"
+// typeof function -> "function"

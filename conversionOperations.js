@@ -1,106 +1,78 @@
-// ============================================================
-//              JAVASCRIPT TYPE CONVERSION
-// ============================================================
+// type conversion
 
-// Type Conversion means converting one data type into another.
-//
-// Common conversion functions:
-//
+// Type conversion means changing one data type into another
+
+// common conversion functions:
 // Number()
 // String()
 // Boolean()
-//
 
 
-/* ============================================================
-   1. STRING → NUMBER
-   ============================================================ */
+// string -> number
 
-let score = "null";
+let score = "null"
 
-console.log(typeof score);        // "string"
-console.log(typeof (score));      // "string"
+console.log(typeof score) // string
 
-// Convert String into Number
-let valueInNumber = Number(score);
+let valueInNumber = Number(score)
 
-console.log(typeof valueInNumber); // "number"
-console.log(valueInNumber);        // NaN
+console.log(typeof valueInNumber) // number
+console.log(valueInNumber) // NaN
 
 
-// IMPORTANT:
-// "null"  → NaN
-// null    → 0
-//
-// They are NOT the same.
-//
-// Example:
+// "null" and null are different
 
-console.log(Number("null")); // NaN
-console.log(Number(null));   // 0
+console.log(Number("null")) // NaN
+console.log(Number(null))   // 0
 
 
-// More String → Number examples:
+// more examples
 
-console.log(Number("33"));      // 33
-console.log(Number("33abc"));   // NaN
-console.log(Number(""));        // 0
-console.log(Number(" "));       // 0
-
-
-// ============================================================
-//              BOOLEAN → NUMBER
-// ============================================================
-
-console.log(Number(true));      // 1
-console.log(Number(false));     // 0
+console.log(Number("33"))     // 33
+console.log(Number("33abc"))  // NaN
+console.log(Number(""))       // 0
+console.log(Number(" "))      // 0
 
 
-// ============================================================
-//              BOOLEAN CONVERSION
-// ============================================================
+// boolean -> number
 
-// Boolean() converts a value into true or false.
-
-let isLoggedIn = "RAHUL";
-
-let booleanIsLoggedIn = Boolean(isLoggedIn);
-
-console.log(booleanIsLoggedIn); // true
+console.log(Number(true))  // 1
+console.log(Number(false)) // 0
 
 
-// ============================================================
-//              COMMON BOOLEAN CONVERSIONS
-// ============================================================
+// boolean conversion
 
-// Number → Boolean
+let isLoggedIn = "RAHUL"
 
-console.log(Boolean(1));        // true
-console.log(Boolean(0));        // false
+let booleanIsLoggedIn = Boolean(isLoggedIn)
 
-console.log(Boolean(100));      // true
-console.log(Boolean(-10));      // true
+console.log(booleanIsLoggedIn) // true
 
 
-// String → Boolean
+// number -> boolean
 
-console.log(Boolean(""));       // false
-console.log(Boolean(" "));      // true
-console.log(Boolean("Rahul"));  // true
+console.log(Boolean(1))    // true
+console.log(Boolean(0))    // false
 
-
-// null / undefined → Boolean
-
-console.log(Boolean(null));      // false
-console.log(Boolean(undefined)); // false
+console.log(Boolean(100))  // true
+console.log(Boolean(-10))  // true
 
 
-// ============================================================
-//                    FALSY VALUES
-// ============================================================
+// string -> boolean
 
-// The following values are FALSY in JavaScript:
-//
+console.log(Boolean(""))      // false
+console.log(Boolean(" "))     // true
+console.log(Boolean("Rahul")) // true
+
+
+// null / undefined -> boolean
+
+console.log(Boolean(null))      // false
+console.log(Boolean(undefined)) // false
+
+
+// falsy values
+
 // false
 // 0
 // -0
@@ -109,27 +81,32 @@ console.log(Boolean(undefined)); // false
 // null
 // undefined
 // NaN
-//
-// Everything else is generally TRUTHY.
-//
-// Examples:
 
-console.log(Boolean(false));     // false
-console.log(Boolean(0));         // false
-console.log(Boolean(""));        // false
-console.log(Boolean(null));      // false
-console.log(Boolean(undefined)); // false
-console.log(Boolean(NaN));       // false
+console.log(Boolean(false))     // false
+console.log(Boolean(0))         // false
+console.log(Boolean(""))        // false
+console.log(Boolean(null))      // false
+console.log(Boolean(undefined)) // false
+console.log(Boolean(NaN))       // false
 
 
-// ============================================================
-//                    TRUTHY VALUES
-// ============================================================
+// truthy values
 
-console.log(Boolean("Rahul"));   // true
-console.log(Boolean("0"));       // true
-console.log(Boolean("false"));   // true
-console.log(Boolean(1));         // true
-console.log(Boolean(-1));        // true
-console.log(Boolean([]));        // true
-console.log(Boolean({}));        // true
+console.log(Boolean("Rahul"))  // true
+console.log(Boolean("0"))      // true
+console.log(Boolean("false"))  // true
+console.log(Boolean(1))        // true
+console.log(Boolean(-1))       // true
+console.log(Boolean([]))       // true
+console.log(Boolean({}))       // true
+
+
+// important
+
+// "0" -> true
+// "false" -> true
+// because both are non-empty strings
+
+// 0 -> false
+// false -> false
+// "" -> false
